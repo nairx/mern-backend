@@ -4,12 +4,12 @@ import {
   login,
   showUsers,
 } from "../controllers/userController.js";
+import { authenticate, authorize } from "../middleware/auth.js";
 import express from "express";
 const userRouter = express.Router();
-
-userRouter.get("/showUsers", showUsers);
+userRouter.get("/", authenticate, authorize("admin"), showUsers);
 userRouter.post("/login", login);
-userRouter.post("/addUser", addUser);
-userRouter.delete("/deleteUser/:id", deleteUser);
+userRouter.post("/signup", addUser);
+userRouter.delete("/:id", authenticate, authorize("admin"), deleteUser);
 
-export default userRouter
+export default userRouter;
