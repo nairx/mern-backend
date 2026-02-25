@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include("../partials/header.ejs")  %>
+<h1>User Edit Page</h1>
+<form action="/users/<%= user._id%>/edit" method="POST">
+      <p><input type="text" name="name" value="<%= user.name  %>" placeholder="Name" /></p>
+      <p><input type="text" name="email" value="<%= user.email  %>" placeholder="Email" /></p>
+      <p>
+        <input type="password" name="password" placeholder="New Password" />
+      </p>
+      <p>
+        <select name="role" required>
+            <option value="">--Select Role--</option>
+          <option value="user" <%= user.role === "user" ? "selected" : "" %>>User</option>
+          <option value="admin" <%= user.role === "admin" ? "selected" : "" %>>Admin</option>
+        </select>
+      </p>
+      <p><button>Submit</button></p>
+    </form>
+         <%- include("../partials/footer.ejs")  %>
+
+</body>
+</html>

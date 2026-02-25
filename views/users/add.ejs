@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include("../partials/header.ejs") %>
+    <h1>Add User</h1>
+    <form action="/users/add/" method="POST">
+      <p><input type="text" name="name" placeholder="Name" /></p>
+      <p><input type="text" name="email" placeholder="Email" /></p>
+      <p>
+        <input type="password" name="password" placeholder="New Password" />
+      </p>
+      <p>
+        <select name="role">
+            <option value="">--Select Role--</option>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+      </p>
+      <p><button>Submit</button></p>
+    </form>
+    <%- include("../partials/footer.ejs") %>
+  </body>
+</html>
