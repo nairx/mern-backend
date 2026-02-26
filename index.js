@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(expressLayouts)
 app.set("layout","layout")
 app.use(cors())
-app.use(express.static("public"))
+app.use(express.static(path.join(process.cwd(), "public")));
 const startServer = async () => {
   await dbConnect();
   app.listen(8080, () => console.log("Server started"));
