@@ -1,4 +1,5 @@
 import express from "express";
+import path from "path"
 import dotenv from "dotenv"
 import expressLayouts from "express-ejs-layouts";
 import dbConnect from "./config/db.js";
@@ -10,6 +11,7 @@ import productRouter from "./routes/productRoute.js";
 const app = express();
 dotenv.config()
 app.set("view engine","ejs")
+app.set("views", path.join(process.cwd(), "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(expressLayouts)
 app.set("layout","layout")
