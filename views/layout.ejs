@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<div>
+
+<div class="header">
+      <div><h1>MERN Application</h1></div>
+      
+      <div>
+        <ul class="menu">
+
+          <li><a href="/users">Users</a></li>
+          <li><a href="/products/show">Products</a></li>
+          <li><% if (user){ %>
+<a href="/users/login-form">Logout</a>  
+<% } else { %> <a href="/users/login-form">Login</a>  <% } %></li>
+          
+        </ul>
+      </div>
+    </div>
+    <hr>
+    
+    <div> <%- body  %></div>
+<hr>
+    <div>&copy; 2026. All rights reserverd.</div>
+
+</div>
+
+   
+</body>
+</html>

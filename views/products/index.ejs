@@ -6,9 +6,16 @@
     <title>Document</title>
 </head>
 <body>
-    <%- include("../partials/header.ejs")  %>
+  
     <div>Products Admin Page</div>
-    
-     <%- include("../partials/footer.ejs")  %>
+    <p>
+        <a href="/products/add">Add Product</a>
+    </p>
+    <ol>
+    <% products.forEach(product => { %>
+<li><%= product.name %> - <%= product.description  %> - <%= product.price  %> - <%= product.imageurl  %>- <a href="/products/<%= product._id %>/edit">Edit</a>&nbsp;<a href="/products/<%= product._id %>/delete">Delete</a></li>
+        <% }) %>
+        </ol>
+ 
 </body>
 </html>

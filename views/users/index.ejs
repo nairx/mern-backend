@@ -6,7 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <%- include("../partials/header.ejs")  %>
     <div>Users Admin Page</div>
     <p><a href="/users/add">Add User</a></p>
     <ol>
@@ -14,6 +13,5 @@
 <li><%= user.name %> - <%= user.email %> - <%= user.role  %> - <a href="/users/<%= user._id %>/edit">Edit</a>&nbsp;<a href="/users/<%= user._id %>/delete">Delete</a></li>
         <% }) %> 
         </ol>
-     <%- include("../partials/footer.ejs")  %>
 </body>
 </html>

@@ -1,0 +1,10 @@
+*{
+    margin: 1px;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+.menu li{
+    display: inline-block;
+}

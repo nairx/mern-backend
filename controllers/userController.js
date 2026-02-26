@@ -10,19 +10,31 @@ const signup = async (req, res) => {
   res.json(result);
 };
 
+const loginForm = (req, res) => {
+  res.render("users/login-form");
+};
+
 const login = async (req, res) => {
   const { email, password } = req.body;
   const found = await userModel.findOne({ email });
   if (found) {
     const chkPassword = await bcrypt.compare(password, found.password);
     if (chkPassword) {
-      const obj = {
+      req.session.user = {
+        id: found._id,
         name: found.name,
-        email: found.email,
         role: found.role,
       };
-      const token = jwt.sign(obj, SECRET, { expiresIn: "1h" });
-      res.status(200).json({ message: "Success", token });
+      res.redirect("/");
+
+      // req.session.regenerate((err) => {
+      //   req.session.user = {
+      //     id: found._id,
+      //     name: found.name,
+      //     role: found.role,
+      //   };
+      //   res.redirect("/");
+      // });
     } else {
       res.status(401).json({ message: "Invalid Password" });
     }
@@ -30,6 +42,26 @@ const login = async (req, res) => {
     res.status(401).json({ message: "User not found" });
   }
 };
+// const login = async (req, res) => {
+//   const { email, password } = req.body;
+//   const found = await userModel.findOne({ email });
+//   if (found) {
+//     const chkPassword = await bcrypt.compare(password, found.password);
+//     if (chkPassword) {
+//       const obj = {
+//         name: found.name,
+//         email: found.email,
+//         role: found.role,
+//       };
+//       const token = jwt.sign(obj, SECRET, { expiresIn: "1h" });
+//       res.status(200).json({ message: "Success", token });
+//     } else {
+//       res.status(401).json({ message: "Invalid Password" });
+//     }
+//   } else {
+//     res.status(401).json({ message: "User not found" });
+//   }
+// };
 
 const deleteUser = async (req, res) => {
   const id = req.params.id;
@@ -82,4 +114,5 @@ export {
   showUsers,
   editUser,
   saveUser,
+  loginForm,
 };

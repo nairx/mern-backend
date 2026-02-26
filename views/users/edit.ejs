@@ -6,7 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <%- include("../partials/header.ejs")  %>
 <h1>User Edit Page</h1>
 <form action="/users/<%= user._id%>/edit" method="POST">
       <p><input type="text" name="name" value="<%= user.name  %>" placeholder="Name" /></p>
@@ -23,7 +22,6 @@
       </p>
       <p><button>Submit</button></p>
     </form>
-         <%- include("../partials/footer.ejs")  %>
 
 </body>
 </html>
