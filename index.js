@@ -30,7 +30,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   store: MongoStore.create({
-    mongoUrl: "mongodb://localhost:27017/merndatabase"
+    mongoUrl: process.env.MONGO_URI
   }),
   cookie: {
     maxAge: 1000 * 60 * 60,
