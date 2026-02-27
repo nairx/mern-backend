@@ -11,7 +11,7 @@ import productRouter from "./routes/productRoute.js";
 const app = express();
 dotenv.config()
 app.set("view engine","ejs")
-app.set("view","views")
+app.set("views","views")
 // app.set("views", path.join(process.cwd(), "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(expressLayouts)
