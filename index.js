@@ -19,7 +19,7 @@ app.use(cors())
 app.use(express.static(path.join(process.cwd(), "public")));
 const startServer = async () => {
   await dbConnect();
-  // app.listen(8080, () => console.log("Server started"));
+  app.listen(8080, () => console.log("Server started"));
 };
 startServer();
 app.use(express.json());
