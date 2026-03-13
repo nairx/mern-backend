@@ -20,21 +20,14 @@ const login = async (req, res) => {
   if (found) {
     const chkPassword = await bcrypt.compare(password, found.password);
     if (chkPassword) {
-      req.session.user = {
+      const user = {
         id: found._id,
         name: found.name,
+        email: found.email,
         role: found.role,
       };
-      res.redirect("/");
-
-      // req.session.regenerate((err) => {
-      //   req.session.user = {
-      //     id: found._id,
-      //     name: found.name,
-      //     role: found.role,
-      //   };
-      //   res.redirect("/");
-      // });
+      const token = jwt.sign(user, SECRET, { expiresin: "1h" });
+      res.json({ ...user, token });
     } else {
       res.status(401).json({ message: "Invalid Password" });
     }
@@ -62,7 +55,12 @@ const login = async (req, res) => {
 //     res.status(401).json({ message: "User not found" });
 //   }
 // };
-
+const logout = async (req, res) => {
+  req.session.destroy((err) => {
+    res.clearCookie("connect.sid");
+    res.redirect("/");
+  });
+};
 const deleteUser = async (req, res) => {
   const id = req.params.id;
   const result = await userModel.findByIdAndDelete(id);
@@ -115,4 +113,5 @@ export {
   editUser,
   saveUser,
   loginForm,
+  logout,
 };

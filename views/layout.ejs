@@ -16,11 +16,15 @@
       <div>
         <ul class="menu">
 
-          <li><a href="/users">Users</a></li>
+    
+          <li><% if (user) { %>
+
+          
+                  <li><a href="/users">Users</a></li>
           <li><a href="/products/show">Products</a></li>
-          <li><% if (user){ %>
-<a href="/users/login-form">Logout</a>  
-<% } else { %> <a href="/users/login-form">Login</a>  <% } %></li>
+
+<a href="/admin/logout">Logout</a>  
+<% } else { %> <a href="/admin/login">Login</a>  <% } %></li>
           
         </ul>
       </div>
