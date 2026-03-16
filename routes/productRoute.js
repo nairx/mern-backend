@@ -9,8 +9,8 @@ import {
 } from "../controllers/productController.js";
 import express from "express";
 const productRouter = express.Router();
-productRouter.get("/show", showProducts);
 productRouter.get("/", displayProducts);
+productRouter.get("/show", showProducts);
 productRouter.get("/add", addProduct);
 productRouter.post("/add", saveNewProduct);
 productRouter.get("/:id/delete", deleteProduct);

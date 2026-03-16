@@ -7,8 +7,8 @@ const showProducts = async (req, res) => {
 
 const displayProducts = async (req, res) => {
   const products = await productModel.find();
-  res.render("home",{products})
-  // res.json(result);
+  // res.render("home",{products})
+  res.json(products);
 };
 
 const deleteProduct = async (req, res) => {
