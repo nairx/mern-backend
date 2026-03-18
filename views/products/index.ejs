@@ -13,7 +13,7 @@
     </p>
     <ol>
     <% products.forEach(product => { %>
-<li><%= product.name %> - <%= product.description  %> - <%= product.price  %> - <%= product.imageurl  %>- <a href="/products/<%= product._id %>/edit">Edit</a>&nbsp;<a href="/products/<%= product._id %>/delete">Delete</a></li>
+<li><%= product.name %> - <%= product.desc  %> - <%= product.price  %> - <%= product.imageUrl  %>- <a href="/products/<%= product._id %>/edit">Edit</a>&nbsp;<a href="/products/<%= product._id %>/delete">Delete</a></li>
         <% }) %>
         </ol>
  

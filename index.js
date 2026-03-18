@@ -8,6 +8,7 @@ import cors from "cors";
 import userRouter from "./routes/userRoute.js";
 import productRouter from "./routes/productRoute.js";
 import authRouter from "./routes/authRoute.js";
+import orderRouter from "./routes/orderRoute.js";
 const app = express();
 dotenv.config();
 app.set("view engine", "ejs");
@@ -51,4 +52,4 @@ app.use("/admin", authRouter);
 
 app.use("/users", userRouter);
 app.use("/products", productRouter);
-
+app.use("/orders",orderRouter)

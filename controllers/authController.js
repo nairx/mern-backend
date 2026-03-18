@@ -12,7 +12,7 @@ const signup = async (req, res) => {
 };
 
 const loginForm = (req, res) => {
-  res.render("auth/login-form", { err: "Hello" });
+  res.render("auth/login-form", { err: null });
 };
 
 const login = async (req, res) => {

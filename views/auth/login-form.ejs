@@ -7,13 +7,7 @@
   </head>
   <body>
     <h1>Login Form</h1>
-    <% if (err) { %>
-  <div style="color:red;">
-    <%= err %>
-  </div>
-<% } %>
-
-    <form action="/admin/login" method="POST">
+       <form action="/admin/login" method="POST">
       <p><input type="text" name="email" placeholder="Email" /></p>
       <p><input type="password" name="password" placeholder="Password"></p>
       <p><button>Submit</button></p>

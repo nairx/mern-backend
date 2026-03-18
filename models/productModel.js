@@ -3,8 +3,8 @@ const productSchema = mongoose.Schema({
     
   name: { type: String, required: true },
   price: { type: Number, required: true },
-  description: { type: String, required: true },
-  imageurl: { type: String, required: true },
+  desc: { type: String, required: true },
+  imageUrl: { type: String, required: true },
 
 });
 const productModel = mongoose.model("products", productSchema);
