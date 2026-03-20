@@ -8,7 +8,14 @@
     <p>Edit Order Form</p>
     <form action="/orders/edit/<%= order._id  %>" method="POST">
       <p><input type="text" disabled value="<%= order.email %>" /></p>
-       <p><input type="text" disabled value="<%= order.orderValue %>" /></p>
+       <p><input type="text" disabled value="Order Value: <%= order.orderValue %>" /></p>
+
+       <ol>
+       <% order.cart.forEach(item => { %>
+        <li><%= item.name %> - Quantity:<%= item.quantity %> </li>
+       <% }) %>
+       </ol>
+
         <p><input type="text" name="status"  value="<%= order.status %>" /></p>
       <p><button>Submit</button></p>
     </form>
