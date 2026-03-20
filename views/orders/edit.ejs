@@ -1,0 +1,16 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Edit Order Form</p>
+    <form action="/orders/edit/<%= order._id  %>" method="POST">
+      <p><input type="text" disabled value="<%= order.email %>" /></p>
+       <p><input type="text" disabled value="<%= order.orderValue %>" /></p>
+        <p><input type="text" name="status"  value="<%= order.status %>" /></p>
+      <p><button>Submit</button></p>
+    </form>
+  </body>
+</html>
