@@ -9,6 +9,7 @@ import userRouter from "./routes/userRoute.js";
 import productRouter from "./routes/productRoute.js";
 import authRouter from "./routes/authRoute.js";
 import orderRouter from "./routes/orderRoute.js";
+import seedAdmin from "./config/seedAdmin.js";
 const app = express();
 dotenv.config();
 app.set("view engine", "ejs");
@@ -20,6 +21,7 @@ app.use(cors());
 app.use(express.static("public"));
 const startServer = async () => {
   await dbConnect();
+  await seedAdmin();
   app.listen(8080, () => console.log("Server started"));
 };
 startServer();
